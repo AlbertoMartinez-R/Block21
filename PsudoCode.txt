@@ -1,0 +1,44 @@
+Start
+
+1. Define Base URL for the API
+
+2. Define Function fetchParties:
+    - Make a GET requst to the API using the Base URL
+    - If the request is succesful:
+        - Call function displayParties with data receved
+    - Otherwise:
+        - Log an error mesage
+
+3. Define Function displayParties with parameter parties:
+    - Find the party-list element in the HTML document
+    - Clear the curent contents of the party-list
+    - For each party in the parties:
+        - Create a list item
+        - Set the content of the list item with party detals (name, date, location, description)
+        - Create a delete button for the party
+        - Attach an onclick event to the delete button to call deleteParty function with party's id
+        - Append the delete button to the list item
+        - Append the list item to the party-list
+
+4. Listen for Submit Event on the form add-party-form:
+    - Prevent default form submission action
+    - Extract data from the form fields (name, date, location, description)
+    - Prepare the data in JSON format
+    - Make a POST request to the API to add a new party with the prepared data
+    - If the request is successful:
+        - Call fetchParties to update the list
+        - Clear the form fields
+    - Otherwise:
+        - Log an error message
+
+5. Define Function deleteParty with parameter id:
+    - Make a DELETE request to the API for the party with the given id
+    - If the request is successful:
+        - Call fetchParties to update the list
+    - Otherwise:
+        - Log an error message
+
+6. On document ready:
+    - Call fetchParties to load and display parties
+
+End
